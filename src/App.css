@@ -7,13 +7,7 @@ body {
 }
 
 /* NavbarStyles.css */
-.navbar {
-  background-color: #333;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 
 .logo {
   font-size: 24px;
@@ -27,8 +21,7 @@ body {
   align-items: center;
 }
 
-.join-now-btn,
-.sign-in-btn {
+.join-now-btn{
   margin-left: 20px;
   padding: 10px 20px;
   background-color: #e50914;
@@ -56,63 +49,8 @@ body {
 .app-heading {
   text-align: center;
   color: #e50914;
-  margin: 20px 0;
-}
-/* cards.css */
-.card {
-  background-color: #181818;
-  width: 600px;
-  margin: 20px;
-  text-align: center;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
-  .card:hover {
-    transform: scale(1.1);
-  }
-
-
-.card img {
-  width: 500px;
-  height: 300px;
-  object-fit: cover;
-  border-bottom: 1px solid #333;
 }
 
-.card-content {
-  padding: 15px;
-}
-
-.card-title {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.card-subtitle {
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 10px;
-}
-
-.card-link {
-  display: block;
-  background-color: #e50914;
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-  .card:hover {
-    background-color: #fff;
-    color: #e50914;
-  }
 
 /* FooterStyles.css */
 .footer {

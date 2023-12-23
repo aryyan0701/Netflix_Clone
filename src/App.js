@@ -1,32 +1,36 @@
 import React from "react";
-import Navbar from "./components/navbar";
-import Card from "./components/cards";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import "./App.css";
-import sdata from "./Sdata"
 import Footer from "./components/footer";
-
-
-
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
+import Account from "./pages/Account";
+import { AuthContextProvider } from "./contex/AuthContext";
 
 export default function App() {
   return (
     <>
-     <Navbar
-     className="navbar"
-     />
-     <h1 className="app-heading">Watch More. Watch Better.</h1>
-      <div className="container">
-      {sdata.map((item, index) => (
-        <Card 
-          imgsrc= {item.imgsrc}
-          sname={item.sname}
-          link={item.links}
-          className="card "
-        />
-        ))}
+      <AuthContextProvider>
+        <Navbar className="navbar" />
 
-        <Footer className="footer"/>
-      </div>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/account"
+            element={
+              <protectedRouter>
+                <Account />
+              </protectedRouter>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
+
+      <Footer className="footer" />
     </>
   );
 }
