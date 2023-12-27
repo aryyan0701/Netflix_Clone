@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {UserAuth} from '../contex/AuthContext'
+import {Eye, EyeOff} from 'lucide-react';
 
 export default function LogIn() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState(false)
   const [error, setError] = useState('')
   const { user, logIn } = UserAuth();
   const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,6 +22,10 @@ export default function LogIn() {
       setError(error.message)
     }
   };
+
+  const handleClick=()=>{
+   setPassword(!password)
+  }
   return (
     <div className='w-full h-screen'>
     <img
@@ -48,6 +54,10 @@ export default function LogIn() {
               placeholder='Password'
               autoComplete='current-password'
             />
+             <div className='relative '>
+                  {password ? <Eye/>:<EyeOff onClick={handleClick}/>}    
+
+                </div>
             <button className='bg-red-600 py-3 my-6 rounded font-bold'>
               Sign In
             </button>

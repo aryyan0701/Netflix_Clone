@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {UserAuth} from '../contex/AuthContext'
+import {Eye, EyeOff} from 'lucide-react';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');  
@@ -16,7 +17,11 @@ export default function SignUp() {
     } catch (error) {
       console.log(error);
     }
-  };  
+  }; 
+  
+  const handleClick=()=>{
+    setPassword(!password)
+  }
   return (
     <>
     <div className='w-full h-screen'>
@@ -43,11 +48,16 @@ export default function SignUp() {
                 />
                 <input
                   onChange={(e) => setPassword(e.target.value)}
-                  className='p-3 my-2 bg-gray-700 rouded'
-                  type='password'
+                  className='p-3 my-2 bg-gray-700 rouded relative   pr-10'
+                  type={password ? 'password': 'text'}
                   placeholder='Password'
                   autoComplete='current-password'
                 />
+                <div className='relative '>
+                  {password? <Eye/>:<EyeOff onClick={handleClick}/>}
+
+                </div>
+               
                 <button className='bg-red-600 py-3 my-6 rounded font-bold'>
                   Sign Up
                 </button>
